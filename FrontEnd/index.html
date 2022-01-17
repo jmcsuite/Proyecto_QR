@@ -72,15 +72,12 @@
 
                         const formData = new FormData()
                         const file = document.getElementById("file")
-                        formData.append('imagen', file)
+                        formData.append('imagen', file.files[0])
 
 
 
                         fetch('', {
                           method: 'POST', // or 'PUT'
-                          headers: {
-                            'Content-Type': 'application/json',
-                          },
                           body: formData,
                           })
                           .then(response => response.json())

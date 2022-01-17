@@ -26,6 +26,7 @@ def processInput(req, res):
 
 def getQRs(name):
     if(os.path.isfile(name) is False):
+        print("asdl")
         return False, [], name
 
     inputImage = cv2.imread('{}'.format(name))

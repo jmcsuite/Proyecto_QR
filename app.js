@@ -1,4 +1,6 @@
 const express = require('express')
+const fs = require('fs')
+
 const app = express()
 const port = 3000;
 
@@ -22,12 +24,24 @@ app.get('/', (req, res) => {
 
 app.post('/', upload.single('imagen'), (req, res) => {
   //var pinky = require('../FrontEnd/index.html');
-  console.log("Servidor prueba en el post");
-  //res.send("Hello world!");
-  //res.send(pinky);
-  console.log(req.file)
   let a = "poooss"
-  res.json(a)
+
+  if(req.file){
+    console.log(req.file.path)
+    let extension = req.file.originalname.split('.')
+    console.log(extension)
+    let newName = req.file.path + '.' + extension[1]
+    fs.rename(req.file.path, newName, (error) => {
+      if(error) res.json(a)
+    });
+
+  }
+  else{
+    console.log("no")
+    res.json(a)
+  }
+  
+  
 })
 
 
