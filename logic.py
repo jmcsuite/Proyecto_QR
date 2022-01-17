@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+import os
 
 color = (143, 136, 63)
 
@@ -24,6 +25,9 @@ def processInput(req, res):
     res['path'] = path
 
 def getQRs(name):
+    if(os.path.isfile(name) is False):
+        return False, [], name
+
     inputImage = cv2.imread('{}'.format(name))
     decoder = cv2.QRCodeDetector()
     data, data1, data2, data3 = decoder.detectAndDecodeMulti(inputImage)
