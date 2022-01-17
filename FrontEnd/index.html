@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0", user-scalable=no, maximun-scale=1.0, minimun-scale=1.0>
+        <link rel="stylesheet" href="estilos.css" >
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;1,300&display=swap" rel="stylesheet">        
+        <title>QR</title>
+    </head>
+
+  <body class="cuerpo"> <!-- PARA EL FONDO DE PANTALLA COLOR -->
+
+      <div class="container-fluid navbar navbar-light" style="background-color: #581b80c0;" fixed-top> <!--NAVBAR PARA LA PAGINA WEB-->
+        <nav class="navbar navbar-expand-lg container">
+        <div class="container-fluid">
+        <a class="navbar-brand" href="#">QR escaner</a>
+        <ul class="navbar-nav m-auto">
+        </ul>
+        </div>
+        </nav>
+      </div> <!--DIV DEL NAVBAR-->
+
+   
+      
+      <div class="container py-3"> <!--DIVISIÓN PLAYLIST-->
+        <div class="row align-items-center text-lg-left">
+          <div class="col-md-6 text-lg-left">
+            <h2>Funcionalidad</h2>
+            <p><a>1. Ingresa una imagen guardada que contenga un código QR visible</a></p>
+            <p><a>2. Dar click en el botón "Escanear"</a></p>
+                <form>
+                    <div class="row align-items-center text-lg-center">
+                        <div class="col-md-6 text-lg-center">
+                <div class="container py-4"></div>
+                <p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;" ></p>
+                <p><label for="file" style="cursor: pointer;" class="button">SELECCIONAR IMAGEN</label></p>
+                <script>
+                  var loadFile = function(event) {
+                      var image = document.getElementById('image');
+                      image.src = URL.createObjectURL(event.target.files[0]);
+                      console.log("holi");
+                  };
+                  </script>
+                <p><img id="output" width="200" /></p>
+                 </form>
+                <div class="container py-3"></div>
+            </div>
+        </div>
+          </div>
+              <div class="col-md-6">
+                <div class="container1">
+                  <div class="card">
+                    <img src="ALINICIO.png " id="image" class="img-fluid" alt="" width="350px" > 
+                </div>
+                  <div class="container py-1"></div>
+             
+                  <button class="button" onclick="myFunction(event)" id="escam">ESCANEAR</button>
+                    
+                  
+                    <script>
+                      var myFunction = function(event){
+                        console.log("HOLA MUNDO!");
+                        var req = new XMLHttpRequest()
+                        req.open("POST", "");
+                        req.send("asdasd");
+                      };
+                    </script>
+          
+                
+                </div>
+                
+              </div> 
+        </div>
+    </div><!--DIV DIVISION PLAYLIST-->
+    <script src="index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js" crossorigin="anonymous"></script>
+  </body>
+</html>
