@@ -2,7 +2,7 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
 from logic import processInput
 
-HOST = '127.0.0.1'
+HOST = ''
 PORT = 8080
 
 class JuanHTTP(BaseHTTPRequestHandler):
